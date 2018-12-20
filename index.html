@@ -1,0 +1,24 @@
+  <!doctype html>
+  <html>
+    <head>
+      <title>Ducks vs Dragons</title>
+    </head>
+    <body>
+      <div style="text-align:center;" id="home">
+        <h1 style="text-align:center;">XeNo presents</h1>
+        <h2 style="text-align:center;">Ducks vs Dragons</h2>
+        <button id="play">Play</button>
+      </div>
+      <div id="game" style="text-align:center;display:none;">
+      	<p>Place holder for game right now</p>
+      </div>
+      <script>
+        play = document.querySelector("#play");
+        play.addEventListener("click", function() {
+		  		document.querySelector("#home").style.display = "none";
+          document.querySelector("#game").style.display = "block";
+        });
+      </script>
+    </body>
+  </html>
+  <!-- Text align works now! You can select this part too. This is a comment. -->   i put picture in hangouts
