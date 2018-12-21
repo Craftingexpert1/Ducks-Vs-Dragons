@@ -1,12 +1,15 @@
-  <!doctype html>
+<!doctype html>
   <html>
     <head>
       <title>Ducks vs Dragons</title>
+      <meta charset="utf-8"> 
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link href="https://fonts.googleapis.com/css?family=Roboto">
     </head>
-    <body>
+    <body style="font-family:'Roboto', sans-serif;">
       <div style="text-align:center;" id="home">
-        <h1 style="text-align:center;">XeNo presents</h1>
-        <h2 style="text-align:center;">Ducks vs Dragons</h2>
+        <p style="text-align:center;font-size:125%;">XeNo presents</p>
+        <p style="text-align:center;font-size:200%;">Ducks vs Dragons</p>
         <button id="play">Play</button>
       </div>
       <div id="game" style="text-align:center;display:none;">
@@ -15,10 +18,9 @@
       <script>
         play = document.querySelector("#play");
         play.addEventListener("click", function() {
-		  		document.querySelector("#home").style.display = "none";
+          document.querySelector("#home").style.display = "none";
           document.querySelector("#game").style.display = "block";
         });
       </script>
     </body>
   </html>
-  <!-- Text align works now! You can select this part too. This is a comment. --> 
