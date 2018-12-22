@@ -4,7 +4,7 @@
       <title>Ducks vs Dragons</title>
       <meta charset="utf-8"> 
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link href="https://fonts.googleapis.com/css?family=Roboto">
+      <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
       <style>
         img {
           user-select:none;
@@ -12,23 +12,25 @@
         }
       </style>
     </head>
-    <body style="font-family:'Roboto', sans-serif;">
+    <body style="font-family:'Roboto', sans-serif;overflow:hidden;margin:0;padding:0;">
       <div style="text-align:center;" id="home">
         <p style="text-align:center;font-size:125%;">XeNo presents</p>
         <p style="text-align:center;font-size:200%;">Ducks vs Dragons</p>
-        <button id="play">Play</button>
+        <button id="play" style="border:none;font-family:'Roboto', sans-serif;background:rgba(33,150,243,1);color:white;width:50px;height:20px;">Play</button>
       </div>
       <div id="game" style="text-align:center;display:none;">
-        <div id="player" style="width:100px;height:100px;top:5px;left:5px;position:absolute;">
+        <div id="player" style="width:90px;height:90px;top:5px;left:5px;position:absolute;">
           <img src="duck.png" width="100" height="100">
         </div>
+		<div id="platform" style="width:150px;height:10px;top:400px;left:10px;background:black;position:absolute;"></div>
+		<div id="ground" style="width:100%;height:10px;bottom:0px;background:red;position:absolute;"></div>
       </div>
       <script>
         play = document.querySelector("#play");
-	player = document.querySelector("#player");
-	var d=null;
-        var g_speed=0.1;
-	function player_move(axis, howmuch) {	
+		player = document.querySelector("#player");
+		var d=null;
+        var g_speed=6;
+		function player_move(axis, howmuch) {	
           if (axis=="x") {
             d=Number(player.style.top.replace("px", ""));
             player.style.top=(d+howmuch).toString()+"px";
@@ -40,24 +42,25 @@
         }
         function g() {
           player_move("x", g_speed);
-          g_speed*=1.075;
+		  g_speed*=1.0004;
         }
         play.addEventListener("click", function() {
           document.querySelector("#home").style.display = "none";
           document.querySelector("#game").style.display = "block";
+		  document.body.addEventListener("keypress", function(e) {
+            if (e.key=="w") {
+              player_move("x",-6)
+            } else if (e.key=="a") {
+              player_move("y",-6)
+            } else if (e.key=="s") {
+              player_move("x",6)
+            } else if (e.key=="d") {
+              player_move("y",6)
+            }
+		  });
+          var gravity = setInterval(g,100);
         });
-	document.body.addEventListener("keypress", function(e) {
-          if (e.key=="w") {
-            player_move("x",-6)
-          } else if (e.key=="a") {
-            player_move("y",-6)
-          } else if (e.key=="s") {
-            player_move("x",6)
-          } else if (e.key=="d") {
-            player_move("y",6)
-          }
-        });
-        setInterval(g,100);
+
       </script>
     </body>
   </html>
