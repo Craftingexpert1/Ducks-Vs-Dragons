@@ -8,6 +8,7 @@ foo = cnvs.getContext("2d");
 player_x = 0;
 player_y = 0;
 grav = 0;
+var stop = false;
 var flip = false;
 rckbtm = cnvs.height - 36;
 function drawImage(img, x, y, width, height, deg, flip, flop, center) {
@@ -27,14 +28,18 @@ function drawImage(img, x, y, width, height, deg, flip, flop, center) {
 	foo.scale(flipScale, flopScale);    
 	foo.drawImage(img, -width/2, -height/2, width, height);
 	foo.restore();
+}; function drawRect(width, height, color, x, y) {
+    foo.fillStyle = color;
+    foo.fillRect(x,y,width,height);
 }
 function draw() {
 	foo.clearRect(0, 0, cnvs.width, cnvs.height)
 	foo.imageSmoothingEnabled = false;
 	foo.save();
 	foo.translate(player_x, player_y);
-	drawImage(document.querySelector("#duck"), 30, 0, 36, 36, 0, flip, false, true);
+	drawImage(document.querySelector("#duck"), 70, 0, 98, 98, 0, flip, false, true);
 	foo.restore();
+	drawRect(100.5, 10.5, "black", 100, 300);
 	player_y += grav;
 	grav +=  0.04;
 	if (player_y > rckbtm) {
