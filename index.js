@@ -39,11 +39,14 @@ function draw() {
 	foo.translate(player_x, player_y);
 	drawImage(document.querySelector("#duck"), 70, 0, 98, 98, 0, flip, false, true);
 	foo.restore();
-	drawRect(100.5, 10.5, "black", 100, 300);
+	drawRect(100.5, 5, "black", 100, 300);
 	player_y += grav;
 	grav +=  0.04;
+	//console.log(player_x+ ","+player_y);
 	if (player_y > rckbtm) {
 		player_y = rckbtm;
+		grav=0;
+	} else if (player_x > 20.5 && player_x < 125 && player_y>265.5 && player_y <270) {
 		grav=0;
 	}
 	document.onkeydown=(e)=>{
