@@ -56,13 +56,12 @@ function sprite(img, x, y, width, height, deg, flip, flop, center) {
 	return crash;
 }  function playcrash(rect1, rect2) {
 	var crash;
-	if(rect1.x<rect2.x+rect1.width/2&&
-   rect1.x>rect2.x &&
+	if(rect1.x<rect2.x+rect1.width/2&&rect1.x>rect2.x&&
    rect1.y+rect1.width/2 < rect2.y + rect2.height &&
    rect1.y + rect1.height/2 > rect2.y) {
 		crash="right";
 	} else if (rect1.x==70) {
-		console.log("hey")
+		crash="false"
 	} else {crash=false;}
 	return crash;
 }
