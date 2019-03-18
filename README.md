@@ -4,4 +4,4 @@ by XeNo Gaming
 
 
 
-(Partership with 2k inc.)
+(Partnership with 2k inc.)
